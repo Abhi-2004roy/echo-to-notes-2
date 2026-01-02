@@ -6,13 +6,17 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-    origin: "*",
+    origin: "*", 
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 }));
 app.options('*', cors());
+//app.use(cors());
 app.use(express.json());
-app.use(cors());
+
 
 
 // --- DEBUG CHECK ---
