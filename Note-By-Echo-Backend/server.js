@@ -6,11 +6,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-    origin: [
-        "https://echo-to-notes-frontend.vercel.app", // Your Frontend Vercel URL
-        "http://localhost:5173", // For local testing (Vite)
-        "http://localhost:3000"  // For local testing (CRA)
-    ],
+    origin: "*",
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
