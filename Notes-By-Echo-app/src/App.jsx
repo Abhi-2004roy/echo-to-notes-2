@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, color } from 'framer-motion';
 import { Menu, Search, Sun, Moon, Volume2, Download, Trash2, X, User, Type, Grid, Layers, LogIn, LogOut , Edit2, Check , Printer } from 'lucide-react';
 //Local to Global shift
-const API_URL = "https://echo-to-notes-backend-final-jgew2s05b.vercel.app";
+const API_URL = "https://echo-to-notes-backend-final.vercel.app";
 const handlePrint = (note) => {
     const printWindow = window.open('', '_blank');
     printWindow.document.write(`
