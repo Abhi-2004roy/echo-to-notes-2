@@ -5,8 +5,19 @@ const Groq = require('groq-sdk');
 require('dotenv').config();
 
 const app = express();
+app.use(cors({
+    origin: [
+        "https://echo-to-notes-frontend.vercel.app", // Your Frontend Vercel URL
+        "http://localhost:5173", // For local testing (Vite)
+        "http://localhost:3000"  // For local testing (CRA)
+    ],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+}));
 app.use(cors());
 app.use(express.json());
+app.options('*', cors());
 
 // --- DEBUG CHECK ---
 if (!process.env.GROQ_API_KEY) {
