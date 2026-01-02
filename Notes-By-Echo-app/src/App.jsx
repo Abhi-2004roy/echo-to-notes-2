@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, color } from 'framer-motion';
 import { Menu, Search, Sun, Moon, Volume2, Download, Trash2, X, User, Type, Grid, Layers, LogIn, LogOut , Edit2, Check , Printer } from 'lucide-react';
-
+//Local to Global shift
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const handlePrint = (note) => {
     const printWindow = window.open('', '_blank');
