@@ -496,7 +496,17 @@ export default function App() {
     const savedUser = localStorage.getItem('app_current_user');
     if (savedUser) setUser(JSON.parse(savedUser));
   }, []);
-
+  
+  const handleHardReset = () => {
+  if (recognition) {
+    recognition.stop();
+    console.log("🛑 Forced Stop");
+    setTimeout(() => {
+      recognition.start();
+      console.log("▶️ Forced Start");
+    }, 200); // Tiny delay to let the browser breathe
+  }
+};
   // Auto-save Notes
   useEffect(() => {
     localStorage.setItem('voiceNotes', JSON.stringify(notes));
@@ -523,8 +533,8 @@ export default function App() {
         const currentResultIndex = event.resultIndex;
         const transcript = event.results[currentResultIndex][0].transcript;
         if(event.results[currentResultIndex].isFinal){
-          if(transcript.toLowerCase().includes("note this")){
-            const cleanText = transcript.replace(/note this/gi, '').trim();
+         if (lower.startsWith("note this") || lower.startsWith("note that")) {
+            const cleanText = transcript.replace(/^(note this|note that)/gi, '').trim();
             if (cleanText) await processNote(cleanText);
           }
         }
