@@ -496,7 +496,7 @@ export default function App() {
     const savedUser = localStorage.getItem('app_current_user');
     if (savedUser) setUser(JSON.parse(savedUser));
   }, []);
-  
+
   const handleHardReset = () => {
   if (recognition) {
     recognition.stop();
@@ -533,8 +533,8 @@ export default function App() {
         const currentResultIndex = event.resultIndex;
         const transcript = event.results[currentResultIndex][0].transcript;
         if(event.results[currentResultIndex].isFinal){
-         if (lower.startsWith("note this") || lower.startsWith("note that")) {
-            const cleanText = transcript.replace(/^(note this|note that)/gi, '').trim();
+         if (lower.startsWith("save this") || lower.startsWith("save it")) {
+            const cleanText = transcript.replace(/^(save this|save that)/gi, '').trim();
             if (cleanText) await processNote(cleanText);
           }
         }
