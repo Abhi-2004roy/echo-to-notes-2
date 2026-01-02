@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+/client/node_modules
+/server/node_modules
+
+# Environment Variables (Protect your API Keys!)
+.env
+/server/.env
+
+# Build outputs
+/client/build
+/client/dist
+.DS_Store
+**/.env
+
+.env
+Note-By-Echo-Backend/.env
